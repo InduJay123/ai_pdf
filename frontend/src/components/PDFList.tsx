@@ -51,8 +51,11 @@ const PDFList = forwardRef<any, PDFListProps>(({ onSelect }: PDFListProps, ref) 
                 <div className="p-4 text-gray-500">No PDFs uploaded yet</div>
             ) : (
                 pdfs.map((pdf) => (
-                    <div key={pdf.id}  className="p-2 border my-1 cursor-pointer border-blue-400 rounded hover:bg-gray-100" onClick={() => onSelect(pdf)}>
-                        {pdf.title}
+                    <div key={pdf.id}  className="p-2 border my-1 cursor-pointer border-blue-400 rounded hover:bg-gray-100 flex items-center justify-between" onClick={() => onSelect(pdf)}>
+                        <div>{pdf.title}</div>
+                        {pdf.processing_status && pdf.processing_status !== 'done' && (
+                            <div className="text-sm text-yellow-700">{pdf.processing_status}</div>
+                        )}
                     </div>
                 ))
             )}
