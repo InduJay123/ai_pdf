@@ -32,8 +32,13 @@ const Dashboard:React.FC = () => {
             <div className="flex-1">
                 {selectedPDF ? (
                     <>
-                        <h2 className="text-lg font-bold mb-2">{selectedPDF.title}</h2>
-                        <PDFPreview key={selectedPDF.id} fileUrl={selectedPDF.file_url} />
+                        <div className="flex items-center gap-3">
+                            <h2 className="text-lg font-bold mb-2">{selectedPDF.title}</h2>
+                            {selectedPDF.processing_status && selectedPDF.processing_status !== 'done' && (
+                                <span className="text-sm text-yellow-700 font-semibold">{selectedPDF.processing_status}</span>
+                            )}
+                        </div>
+                        <PDFPreview key={selectedPDF.id} fileUrl={selectedPDF.file_url} pdfId={selectedPDF.id} processingStatus={selectedPDF.processing_status} />
                     </>
                 ) : (
                     <div className="p-4 text-gray-500">Select a PDF to preview</div>
