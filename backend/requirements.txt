@@ -1,0 +1,29 @@
+# Django core
+Django>=5.0
+
+# Environment variables
+python-dotenv
+
+# Django REST Framework
+djangorestframework
+djangorestframework-simplejwt
+
+# CORS
+django-cors-headers
+
+# Database (PostgreSQL)
+psycopg2-binary
+
+# PDF processing
+PyPDF2
+
+# Numerical computing
+numpy
+
+# AI / NLP
+sentence-transformers
+torch
+transformers
+
+# Vector search
+faiss-cpu
